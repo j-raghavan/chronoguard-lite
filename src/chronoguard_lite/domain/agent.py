@@ -1,9 +1,17 @@
 """Agent entity — the AI agent being monitored.
 
 Three implementations for memory comparison:
-  1. AgentDataclass — @dataclass (naive, ~400 bytes/instance)
-  2. AgentSlots — @dataclass with __slots__ (~200 bytes/instance)
-  3. Agent — Final production version with __slots__ + state machine
+  1. AgentDataclass — @dataclass (naive, with __dict__ per instance)
+  2. AgentSlots — @dataclass(slots=True) (no __dict__, fixed-offset fields)
+  3. Agent — Production version with __slots__ + state machine
+
+Run memory_analysis.compare_representations() for exact per-object
+measurements on your Python version. Typical results on Python 3.10:
+  AgentDataclass: ~420 bytes/instance
+  AgentSlots:     ~324 bytes/instance
+  Agent:          ~324 bytes/instance
+
+The gap narrows on Python 3.11+ due to improved key-sharing dicts (PEP 412).
 """
 from __future__ import annotations
 

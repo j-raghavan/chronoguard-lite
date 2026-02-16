@@ -109,12 +109,16 @@ def compare_representations(count: int = 100_000) -> dict[str, dict[str, float]]
 
     Returns dict mapping representation name to measurement results.
 
-    Output example:
+    Output example (Python 3.10, 64-bit — numbers vary by version):
         Representation       Per-Object (bytes)   100K Total (MB)
         ─────────────────────────────────────────────────────────
-        AgentDataclass       412                  39.3
-        AgentSlots           216                  20.6
-        Agent (__slots__)    216                  20.6
+        AgentDataclass       420                  40.1
+        AgentSlots           324                  30.9
+        Agent (__slots__)    324                  30.9
+
+    Note: On Python 3.11+, key-sharing dicts (PEP 412) are more compact,
+    so the gap between dataclass and __slots__ narrows. Always measure on
+    your target runtime.
     """
     import uuid
     from datetime import datetime, timezone

@@ -25,7 +25,8 @@ class AuditEntry:
     """Immutable audit log entry.
 
     frozen=True ensures no field can be modified after creation.
-    slots=True reduces memory overhead (~180 bytes vs ~400 bytes).
+    slots=True eliminates the instance __dict__, reducing per-object
+    memory overhead (see memory_analysis.py for measurements).
     """
     entry_id: EntryId
     agent_id: AgentId
