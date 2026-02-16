@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+dist/
+*.egg-info/
+.venv/
+htmlcov/
+*.prof
+*.svg
+flamegraph*.html
+.git/.lock-junk/
+git-clean.sh
