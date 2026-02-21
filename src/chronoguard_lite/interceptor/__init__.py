@@ -1,9 +1,8 @@
-"""Request interceptor: threaded TCP server + policy evaluation.
+"""Request interceptor: threaded and async TCP servers + policy evaluation.
 
-Chapter 3 builds the first interceptor -- a threaded TCP server that
-receives agent requests, evaluates them against policies, and logs
-audit entries. Under load, the GIL bottleneck becomes visible:
-throughput plateaus no matter how many threads you add.
+Chapter 3 builds the threaded interceptor. Chapter 5 rewrites it using
+asyncio: same protocol, same evaluator, same audit store, dramatically
+better throughput under concurrent connections.
 """
 from chronoguard_lite.interceptor.protocol import (
     InterceptRequest,
@@ -13,6 +12,11 @@ from chronoguard_lite.interceptor.protocol import (
 )
 from chronoguard_lite.interceptor.evaluator import PolicyEvaluator, EvaluationResult
 from chronoguard_lite.interceptor.threaded import ThreadedInterceptor
+from chronoguard_lite.interceptor.async_interceptor import AsyncInterceptor
+from chronoguard_lite.interceptor.async_protocol import (
+    async_read_message,
+    async_write_message,
+)
 
 __all__ = [
     "InterceptRequest",
@@ -22,4 +26,7 @@ __all__ = [
     "PolicyEvaluator",
     "EvaluationResult",
     "ThreadedInterceptor",
+    "AsyncInterceptor",
+    "async_read_message",
+    "async_write_message",
 ]

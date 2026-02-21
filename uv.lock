@@ -191,6 +191,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "pytest" },
+    { name = "pytest-asyncio" },
 ]
 
 [package.optional-dependencies]
@@ -236,6 +237,7 @@ requires-dist = [
     { name = "py-spy", marker = "extra == 'profiling'", specifier = ">=0.3.14" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0.0" },
+    { name = "pytest-asyncio", specifier = ">=0.23.0" },
     { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=0.23.0" },
     { name = "pytest-benchmark", marker = "extra == 'dev'", specifier = ">=4.0.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.2.0" },
