@@ -11,7 +11,7 @@ def main() -> None:
         prog="chronoguard-lite",
         description="Agent compliance monitor — pure Python, zero infrastructure.",
     )
-    subparsers = parser.add_subparsers(dest="command")
+    _ = parser.add_subparsers(dest="command")
 
     # Each chapter registers its subcommand as it's built
     # Ch3/5: serve — start the interceptor
