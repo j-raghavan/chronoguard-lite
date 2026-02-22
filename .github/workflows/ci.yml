@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, "ch*"]
+    branches: ["ch*"]
   pull_request:
     branches: [main]
 
@@ -26,10 +26,10 @@ jobs:
         run: uv sync --all-extras
 
       - name: Run linter
-        run: uv run ruff check src/ tests/
+        run: uvx ruff check src/ tests/
 
       - name: Run type checker
-        run: uv run mypy src/chronoguard_lite/ --ignore-missing-imports
+        run: uvx mypy src/chronoguard_lite/ --ignore-missing-imports
 
       - name: Run tests
         run: uv run pytest -v -m "not slow"
