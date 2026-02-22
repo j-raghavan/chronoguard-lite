@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+
+# Virtual environments
+.venv/
+.venv-dev/
+
+# Type checking / linting
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Profiling outputs
+*.prof
+*.svg
+flamegraph*.html
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific
+vol2_code_plan.md

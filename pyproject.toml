@@ -1,14 +1,66 @@
 [project]
 name = "chronoguard-lite"
 version = "0.1.0"
-description = "ChronoGuard Lite is an agent compliance monitor. It intercepts and logs every external request an AI agent (or any HTTP client) makes, enforces time-based access policies, maintains a tamper-proof audit trail, and provides analytics — all in pure Python with zero infrastructure dependencies."
+description = "A pure-Python agent compliance monitor — built chapter by chapter."
 readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
 authors = [
-    { name = "Jayasimha Raghavan", email = "mr.jayasimha@gmail.com" }
+    { name = "Jayasimha Raghavan" }
 ]
-requires-python = ">=3.12"
+
+# Core: zero external dependencies for Chapters 1-4, 6, 8-9
 dependencies = []
 
+[project.optional-dependencies]
+# Chapter 5: async interceptor
+async = ["aiohttp>=3.9.0"]
+
+# Chapter 10: profiling tools
+profiling = [
+    "py-spy>=0.3.14",
+    "scalene>=1.5.0",
+    "memray>=1.11.0",
+    "line-profiler>=4.1.0",
+]
+
+# Development
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-benchmark>=4.0.0",
+    "hypothesis>=6.98.0",
+    "mypy>=1.8.0",
+    "ruff>=0.2.0",
+]
+
+# All optional dependencies
+all = ["chronoguard-lite[async,profiling,dev]"]
+
+[project.scripts]
+chronoguard-lite = "chronoguard_lite.cli:main"
+
 [build-system]
-requires = ["uv_build>=0.10.2,<0.11.0"]
-build-backend = "uv_build"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "benchmark: marks benchmark tests (deselect with '-m not benchmark')",
+    "slow: marks tests that take >5s",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "SIM", "TCH"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+disallow_untyped_defs = true
