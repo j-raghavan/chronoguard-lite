@@ -113,7 +113,7 @@ uv run pytest -m "not slow" -v
 
 By **Jayasimha Raghavan**
 
-Available on [Amazon](https://www.amazon.com/dp/9798249314798) in paperback and Kindle.
+Available on [Amazon](https://www.amazon.com/dp/B0GPN7LRPP) in paperback and Kindle.
 
 Every external service from a production compliance monitor is replaced with a hand-built Python equivalent: Redis becomes an in-memory hash map, PostgreSQL becomes a columnar array with bisect queries, OPA becomes a DAG evaluator with topological sort. The point is to learn the algorithms behind the tools, not the tools themselves.
 
