@@ -1,6 +1,6 @@
 # chronoguard-lite
 
-**Companion repository for [Mastering Performant Code in Python, Volume 2](https://www.amazon.com/Mastering-Performant-Code-Concurrency-Algorithms-ebook/dp/B0GPM1G9GM/ref=sr_1_2?crid=2V5BW89VM5UK2&dib=eyJ2IjoiMSJ9.l6ox0n1MKdFWde5leN8L6Cp_mcSNfs5dkejYQTglTAtr0-A2O8jbpr6NulQ30vS8GWNGN1VNIheBerO2t7pDTCBRIMABN2PkwZ3i3xWi7o9lJIgES7myAVQFcDgr6TC0TvDy6XuYnPQQsXPXGFULaFG0mm_gcrVo-kHb6YS2LpHNYur5jgVKkgv4W1XTjb5BZuF7AgBB_gycbedM6UnrNnOdh-CpK6jKqJHTPLV32QI.B_YEgtWzUkT0eSma0v7OQQbPTWgoGefWANzRaECyiZM&dib_tag=se&keywords=mastering+performance+code&qid=1771806949&sprefix=mastering+performant+cod%2Caps%2C178&sr=8-2)**
+**Companion repository for [Mastering Performant Code in Python, Volume 2](https://www.amazon.com/dp/B0GPN7LRPP)**
 
 A pure-Python agent compliance monitor built from scratch -- no Docker, no Redis, no infrastructure to wrangle. Every chapter adds a working module, benchmarks it against the naive version, and teaches you what Python is doing below the API surface.
 
